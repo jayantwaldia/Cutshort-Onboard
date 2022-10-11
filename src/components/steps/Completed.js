@@ -1,17 +1,17 @@
 import React from "react";
 import completed from "../../assets/completed.png";
+import FormHeading from "../layout/FormHeading";
 
 function Completed() {
   return (
-    <div>
-      <img src={completed} />
-      <p className="text-2xl md:text-3xl font-semibold text-gray-700 tracking-wide">
-        Congratulations, Jayant!
-      </p>
-      <p className="text-gray-500 font-normal mt-3">
-        You have completed onboarding, you can start using the Cutshort!
-      </p>
-    </div>
+    <>
+      <img
+        src={completed}
+        alt="check logo"
+        className="mx-auto m-10 transition-opacity duration-500 ease-out"
+      />
+      <FormHeading />
+    </>
   );
 }
 
