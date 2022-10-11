@@ -22,7 +22,7 @@ export const displayStep = [
   },
   {
     step: 4,
-    main: "Congratulations, Jayant!",
+    // main: "Congratulations, Jayant!",
     sub: "You have completed onboarding, you can start using the Cutshort!",
   },
 ];

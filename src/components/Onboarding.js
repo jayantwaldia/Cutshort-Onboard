@@ -16,7 +16,7 @@ function Onboarding() {
         <Stepper displayStep={displayStep} currentStep={currentStep} />
       </div>
 
-      <div className="w-[100%]">
+      <div className="w-[100%] md:w-[80%]">
         <div>{display(currentStep)}</div>
         <StepperControl
           currentStep={currentStep}

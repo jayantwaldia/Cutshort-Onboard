@@ -1,14 +1,8 @@
 import React from "react";
 import Button from "../elements/Button";
 
-function StepperControl({ currentStep, displayStep, handleClick }) {
-  return (
-    <Button
-      currentStep={currentStep}
-      displayStep={displayStep}
-      handleClick={handleClick}
-    />
-  );
+function StepperControl() {
+  return <Button />;
 }
 
 export default StepperControl;

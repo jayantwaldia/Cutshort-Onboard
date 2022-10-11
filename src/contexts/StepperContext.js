@@ -10,6 +10,13 @@ export const StepperContext = createContext(null);
 
 export const StepperContextProvider = ({ children }) => {
   const [currentStep, setCurrentStep] = useState(1);
+  const [formState, setFormState] = useState({
+    fullName: "",
+    displayName: "",
+    workSpaceName: "",
+    workSpaceUrl: "",
+    typeOfPlan: "",
+  });
 
   const display = (step) => {
     switch (step) {
@@ -26,11 +33,12 @@ export const StepperContextProvider = ({ children }) => {
   };
 
   const handleClick = (e) => {
-    e.preventDefault();
     let newStep = currentStep;
     newStep++;
     newStep > 0 && newStep <= displayStep.length && setCurrentStep(newStep);
+    console.log(formState, e.target.value);
   };
+
   return (
     <StepperContext.Provider
       value={{
@@ -40,6 +48,8 @@ export const StepperContextProvider = ({ children }) => {
         handleClick,
         displayStep,
         userPlan,
+        formState,
+        setFormState,
       }}
     >
       {children}

@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { StepperContext } from "../../contexts/StepperContext";
 
-function Button({ currentStep, displayStep, handleClick }) {
+function Button() {
+  const { currentStep, handleClick, displayStep } = useContext(StepperContext);
   return (
     <button
       onClick={(e) => handleClick(e)}
