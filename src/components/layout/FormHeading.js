@@ -4,7 +4,7 @@ import { StepperContext } from "../../contexts/StepperContext";
 function FormHeading() {
   const { currentStep, displayStep, formState } = useContext(StepperContext);
   return (
-    <div className="w-full md:w-[90%] mx-auto">
+    <div className="w-full mx-auto">
       <p className="text-2xl md:text-3xl font-semibold text-gray-700 tracking-wide">
         {currentStep === 4
           ? `Congratulations, ${formState.fullName}!`

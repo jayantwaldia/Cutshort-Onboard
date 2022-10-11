@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { StepperContext } from "../../contexts/StepperContext";
 import user from "../../assets/user.png";
+import Button from "../elements/Button";
 import team from "../../assets/group.png";
 
 function Input() {
@@ -52,6 +53,7 @@ function Input() {
               required
               autoComplete="off"
             />
+            <Button />
           </form>
         </div>
       );
@@ -104,28 +106,35 @@ function Input() {
               required
               autoComplete="off"
             />
+            <Button />
           </form>
         </div>
       );
 
     case 3:
       return (
-        <div className="flex justify-between gap-10 h-full w-full md:w-[70%] mx-auto mt-8 mb-2">
-          <div className="flex flex-col gap-1 p-8 text-left rounded-md border-2 hover:border-[#664DE5] cursor-pointer">
-            <img src={user} alt="single user" className="w-5 mb-2"></img>
-            <p className="font-bold text-lg">
-              {userPlan[currentStep - 3].title}
-            </p>
-            <p className="text-sm">{userPlan[currentStep - 3].text}</p>
+        <>
+          <div className="flex justify-between gap-10 w-full md:w-[70%] mx-auto mt-8">
+            <div className="flex flex-col gap-1 p-8 text-left rounded-md border-2 hover:border-[#664DE5] cursor-pointer">
+              <img src={user} alt="single user" className="w-5 mb-2"></img>
+              <p className="font-bold text-md">
+                {userPlan[currentStep - 3].title}
+              </p>
+              <p className="text-sm">{userPlan[currentStep - 3].text}</p>
+            </div>
+            <div className="flex flex-col gap-1 p-8 text-left rounded-md border-2 hover:border-[#664DE5] cursor-pointer">
+              <img src={team} alt="single user" className="w-5 mb-2"></img>
+              <p className="font-bold text-md">
+                {userPlan[currentStep - 2].title}
+              </p>
+              <p className="text-sm">{userPlan[currentStep - 2].text}</p>
+            </div>
           </div>
-          <div className="flex flex-col gap-1 p-8 text-left rounded-md border-2 hover:border-[#664DE5] cursor-pointer">
-            <img src={team} alt="single user" className="w-5 mb-2"></img>
-            <p className="font-bold text-lg">
-              {userPlan[currentStep - 2].title}
-            </p>
-            <p className="text-sm">{userPlan[currentStep - 2].text}</p>
+          <div className="w-full md:w-[70%] mx-auto">
+            {" "}
+            <Button />
           </div>
-        </div>
+        </>
       );
   }
 }

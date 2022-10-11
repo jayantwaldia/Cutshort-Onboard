@@ -1,13 +1,11 @@
 import { useContext } from "react";
 import Logo from "./elements/Logo";
 import Stepper from "./stepper/Stepper";
-import StepperControl from "./stepper/StepperControl";
 
 import { StepperContext } from "../contexts/StepperContext";
 
 function Onboarding() {
-  const { currentStep, setCurrentStep, display, handleClick, displayStep } =
-    useContext(StepperContext);
+  const { currentStep, display, displayStep } = useContext(StepperContext);
 
   return (
     <div className="flex flex-col w-[100%] text-black text-center mx-auto items-center">
@@ -16,13 +14,8 @@ function Onboarding() {
         <Stepper displayStep={displayStep} currentStep={currentStep} />
       </div>
 
-      <div className="w-[100%] md:w-[80%]">
+      <div className="w-[100%] md:w-[90%]">
         <div>{display(currentStep)}</div>
-        <StepperControl
-          currentStep={currentStep}
-          displayStep={displayStep}
-          handleClick={handleClick}
-        />
       </div>
     </div>
   );
