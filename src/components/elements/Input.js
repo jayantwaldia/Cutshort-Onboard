@@ -53,7 +53,10 @@ function Input() {
               required
               autoComplete="off"
             />
-            <Button />
+            <Button
+              input1={formState.fullName}
+              input2={formState.displayName}
+            />
           </form>
         </div>
       );
@@ -106,7 +109,7 @@ function Input() {
               required
               autoComplete="off"
             />
-            <Button />
+            <Button input1={formState.workSpaceName} input2={"optional"} />
           </form>
         </div>
       );
@@ -115,27 +118,45 @@ function Input() {
       return (
         <>
           <div className="flex justify-between gap-10 w-full md:w-[70%] mx-auto mt-8">
-            <div className="flex flex-col gap-1 p-8 text-left rounded-md border-2 hover:border-[#664DE5] cursor-pointer">
+            <button
+              onClick={() =>
+                setFormState({
+                  ...formState,
+                  typeOfPlan: userPlan[currentStep - 3].title,
+                })
+              }
+              className="flex flex-col gap-1 p-8 text-left rounded-md border-2 focus:outline-none focus:ring focus:ring-[#664DE5] cursor-pointer"
+            >
               <img src={user} alt="single user" className="w-5 mb-2"></img>
               <p className="font-bold text-md">
                 {userPlan[currentStep - 3].title}
               </p>
               <p className="text-sm">{userPlan[currentStep - 3].text}</p>
-            </div>
-            <div className="flex flex-col gap-1 p-8 text-left rounded-md border-2 hover:border-[#664DE5] cursor-pointer">
+            </button>
+            <button
+              onClick={() =>
+                setFormState({
+                  ...formState,
+                  typeOfPlan: userPlan[currentStep - 2].title,
+                })
+              }
+              className="flex flex-col gap-1 p-8 text-left rounded-md border-2 focus:outline-none focus:ring focus:ring-[#664DE5] cursor-pointer"
+            >
               <img src={team} alt="single user" className="w-5 mb-2"></img>
               <p className="font-bold text-md">
                 {userPlan[currentStep - 2].title}
               </p>
               <p className="text-sm">{userPlan[currentStep - 2].text}</p>
-            </div>
+            </button>
           </div>
           <div className="w-full md:w-[70%] mx-auto">
             {" "}
-            <Button />
+            <Button input1={formState.workSpaceName} input2={"optional"} />
           </div>
         </>
       );
+    default:
+      return;
   }
 }
 

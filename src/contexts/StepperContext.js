@@ -5,6 +5,8 @@ import Welcome from "../components/steps/Welcome";
 import Setup from "../components/steps/Setup";
 import Plan from "../components/steps/Plan";
 import Completed from "../components/steps/Completed";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const StepperContext = createContext(null);
 
@@ -32,11 +34,25 @@ export const StepperContextProvider = ({ children }) => {
     }
   };
 
-  const handleClick = (e) => {
-    let newStep = currentStep;
-    newStep++;
-    newStep > 0 && newStep <= displayStep.length && setCurrentStep(newStep);
-    console.log(formState, e.target.value);
+  const handleClick = (input1 = "", input2 = "") => {
+    if (input1 !== "" && input2 !== "") {
+      let newStep = currentStep;
+      newStep++;
+      newStep > 0 && newStep <= displayStep.length && setCurrentStep(newStep);
+    } else if (input1 === "Launch") {
+      return;
+    } else {
+      toast.warn("Form values required!", {
+        position: "bottom-right",
+        autoClose: 1000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
   };
 
   return (
