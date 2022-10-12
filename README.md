@@ -7,6 +7,7 @@
 - Step progress bar to help track the progress.
 - On launch/completion, the user form profile is displayed.
 - Modular and Scalable Codebase
+- CSS framework - Tailwind CSS
 
 ## 🔧 Local Environment Setup
 
