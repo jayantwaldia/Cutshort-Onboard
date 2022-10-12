@@ -39,9 +39,23 @@ export const StepperContextProvider = ({ children }) => {
       let newStep = currentStep;
       newStep++;
       newStep > 0 && newStep <= displayStep.length && setCurrentStep(newStep);
-    } else if (input1 === "Launch") {
-      return;
-    } else {
+    }
+    if (input1 === "Launch") {
+      let output = "🦄 Your Profile has been created - ";
+      for (let property in formState) {
+        output += property + ": " + formState[property] + "; ";
+      }
+      toast.success(output, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    } else if (input1 === "" || input2 === "") {
       toast.warn("Form values required!", {
         position: "bottom-right",
         autoClose: 1000,

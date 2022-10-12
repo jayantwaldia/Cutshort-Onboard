@@ -95,20 +95,30 @@ function Input() {
                 ""
               )}
             </label>
-            <input
-              type="text"
-              id="workSpaceUrl"
-              onChange={(e) =>
-                setFormState({
-                  ...formState,
-                  workSpaceUrl: e.target.value,
-                })
-              }
-              className="mt-1 px-3 py-3 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
-              placeholder="Example"
-              required
-              autoComplete="off"
-            />
+            <div className="flex w-full mt-1">
+              <div className="w-[40%] bg-gray-100 border-slate-300 rounded-l-lg sm:text-sm focus:ring-1 text-center">
+                <p className="px-3 py-3 font-md text-gray-400 justify-center ">
+                  www.eden.com/
+                </p>
+              </div>
+              <div className="bg-gray-100 w-full ">
+                <input
+                  type="text"
+                  id="workSpaceUrl"
+                  onChange={(e) =>
+                    setFormState({
+                      ...formState,
+                      workSpaceUrl: e.target.value,
+                    })
+                  }
+                  className="px-3 py-3 bg-white border shadow-sm w-full  border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block rounded-md sm:text-sm focus:ring-1"
+                  placeholder="Example"
+                  required
+                  autoComplete="off"
+                />
+              </div>
+            </div>
+
             <Button input1={formState.workSpaceName} input2={"optional"} />
           </form>
         </div>
@@ -151,7 +161,7 @@ function Input() {
           </div>
           <div className="w-full md:w-[70%] mx-auto">
             {" "}
-            <Button input1={formState.workSpaceName} input2={"optional"} />
+            <Button input1={formState.typeOfPlan} input2={"optional"} />
           </div>
         </>
       );
